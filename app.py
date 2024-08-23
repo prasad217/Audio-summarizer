@@ -4,7 +4,9 @@ import os
 from audio_summarizer import summarize_audio_file
 
 app = Flask(__name__)
-CORS(app)  # Enable CORS for all routes
+
+# Update CORS to allow your frontend's Vercel URL
+CORS(app, resources={r"/*": {"origins": "https://audio-summarizer-frontend.vercel.app"}})
 
 @app.route('/summarize', methods=['POST'])
 def summarize():
