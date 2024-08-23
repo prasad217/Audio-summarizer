@@ -8,6 +8,10 @@ app = Flask(__name__)
 # Allow CORS for the specific frontend URL
 CORS(app, resources={r"/*": {"origins": "https://audio-summarizer-frontend.vercel.app"}})
 
+@app.route('/')
+def index():
+    return 'Welcome to the Audio Summarizer API. Use the /summarize endpoint to summarize audio files.'
+
 @app.route('/summarize', methods=['POST'])
 def summarize():
     # Save the uploaded audio file temporarily
@@ -24,4 +28,5 @@ def summarize():
     return jsonify({'summary': summary})
 
 if __name__ == '__main__':
+    # Bind to 0.0.0.0 to ensure the server is accessible externally
     app.run(host='0.0.0.0', port=5000, debug=True)
