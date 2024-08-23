@@ -5,12 +5,8 @@ from audio_summarizer import summarize_audio_file
 
 app = Flask(__name__)
 
-# Allow CORS for all origins temporarily for testing
-CORS(app)
-
-@app.route('/')
-def index():
-    return 'Welcome to the Audio Summarizer API. Use the /summarize endpoint to summarize audio files.'
+# Allow CORS for the specific frontend URL
+CORS(app, resources={r"/*": {"origins": "https://audio-summarizer-frontend.vercel.app"}})
 
 @app.route('/summarize', methods=['POST'])
 def summarize():
@@ -28,4 +24,4 @@ def summarize():
     return jsonify({'summary': summary})
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=5000, debug=True)
+    app.run(debug=True)
