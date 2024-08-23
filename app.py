@@ -1,11 +1,11 @@
 from flask import Flask, request, jsonify
-from flask_cors import CORS  # Import CORS
+from flask_cors import CORS
 import os
 from audio_summarizer import summarize_audio_file
 
 app = Flask(__name__)
 
-# Update CORS to allow your frontend's Vercel URL
+# Allow CORS for the specific frontend URL
 CORS(app, resources={r"/*": {"origins": "https://audio-summarizer-frontend.vercel.app"}})
 
 @app.route('/summarize', methods=['POST'])
