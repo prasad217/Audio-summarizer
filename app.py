@@ -39,4 +39,6 @@ def handle_summarize(data):
     emit('summary_response', {'summary': summary})
 
 if __name__ == '__main__':
-    socketio.run(app, host='0.0.0.0', port=5000, debug=True)
+    # Comment out or remove the line below
+    # app.run(app, host='0.0.0.0', port=5000, debug=True)
+    pass
