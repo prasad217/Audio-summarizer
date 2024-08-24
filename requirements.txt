@@ -25,3 +25,4 @@ transformers==4.44.1
 typing_extensions==4.12.2
 urllib3==2.2.2
 Werkzeug==3.0.3
+flask-socketio==5.3.3
